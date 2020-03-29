@@ -1,0 +1,97 @@
+spring: 
+  profiles:
+    active:
+    - dev
+--- 
+server:
+  port: 8001
+spring: 
+   profiles: dev
+   application: 
+    name: microservicecloud-config-dept-client
+   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource          # 当前数据源操作类型
+    # mysql驱动包
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB02?useSSL=false
+    username: root
+    password: root
+    #druid连接池配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.guozeyu.springcloud.entities
+  mapper-locations:
+  - classpath:mybatis/mapper/*.xml
+ 
+eureka: 
+  client: #客户端注册进eureka服务列表内
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+ 
+info:
+  app.name: guozeyu-microservicecloud-springcloudconfig01
+  company.name: www.ayu720.xyz
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+---
+server:
+  port: 8001
+spring: 
+   profiles: test
+   application: 
+    name: microservicecloud-config-dept-client
+   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource          # 当前数据源操作类型
+    # mysql驱动包
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB02?useSSL=false
+    username: root
+    password: root
+    #druid连接池配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true  
+  
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.guozeyu.springcloud.entities
+  mapper-locations:
+  - classpath:mybatis/mapper/*.xml
+ 
+eureka: 
+  client: #客户端注册进eureka服务列表内
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+ 
+info:
+  app.name: guozeyu-microservicecloud-springcloudconfig02
+  company.name: www.ayu720.xyz
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
