@@ -13,7 +13,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource          # 当前数据源操作类型
     # mysql驱动包
     driver-class-name: org.gjt.mm.mysql.Driver
-    url: jdbc:mysql://localhost:3306/cloudDB02?useSSL=false
+    url: jdbc:mysql://localhost:3306/cloudDB03?useSSL=false
     username: root
     password: root
     #druid连接池配置
